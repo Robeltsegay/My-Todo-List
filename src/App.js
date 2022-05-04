@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import "../src/index.css";
 import AddTask from "./components/AddTask";
 import Book, { Foo } from "./components/Book";
-import About from "./pages/About";
-import Upload from "./pages/Upload";
-import Home from "./pages/Home";
-import rotes from "./rotes";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(true);
@@ -63,32 +60,27 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Header
-        title="Test Tracker"
-        showAdd={showAddTask}
-        onAdd={() => setShowAddTask(!showAddTask)}
-      />
-      {showAddTask && <AddTask onAdd={addTask} />}
-      {tasks.length > 0 ? (
-        <Tasks
-          tasks={tasks}
-          onDelete={deleteTask}
-          onToggle={toggleReminder}
-          yo={showAddTask}
+    <>
+      <div className="container">
+        <Header
+          title="Test Tracker"
+          showAdd={showAddTask}
+          onAdd={() => setShowAddTask(!showAddTask)}
         />
-      ) : (
-        "No Tasks To Show"
-      )}
-      <Router>
-        <Switch>
-          {console.log("yo")}
-          <Route path={rotes.HOME} exact component={Home} />
-          <Route path={rotes.ABOUT} component={About} />
-          <Route path={rotes.UPLOAD} component={Upload} />
-        </Switch>
-      </Router>
-    </div>
+        {showAddTask && <AddTask onAdd={addTask} />}
+        {tasks.length > 0 ? (
+          <Tasks
+            tasks={tasks}
+            onDelete={deleteTask}
+            onToggle={toggleReminder}
+            yo={showAddTask}
+          />
+        ) : (
+          "No Tasks To Show"
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
 

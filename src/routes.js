@@ -1,5 +1,5 @@
 export default {
   ABOUT: "/about",
-  HOME: "/home",
+  HOME: "/",
   UPLOAD: "/upload",
 };

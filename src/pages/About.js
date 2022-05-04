@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import rotes from "../rotes";
+
+import routes from "../routes";
 export default function About() {
   return (
-    <div>
+    <div className="containerr">
       <h2>this about page</h2>
-      <Link to={rotes.HOME}>
+      <Link to={routes.HOME}>
         <h2>go to home page</h2>
       </Link>
     </div>

@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import rotes from "../rotes";
+import { Link, useNavigate } from "react-router-dom";
+import routes from "../routes";
+
 export default function Upload() {
+  let navigate = useNavigate();
   return (
     <div>
       <h2>this Upload page</h2>
-      <Link to={rotes.HOME}>
-        <h2>go to home page</h2>
-      </Link>
+      <Link to={routes.HOME}>go to home page</Link>
+      <button
+        onClick={() => {
+          navigate(routes.HOME);
+        }}
+      >
+        Goto home
+      </button>
     </div>
   );
 }
